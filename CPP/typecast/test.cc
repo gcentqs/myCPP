@@ -12,6 +12,7 @@ public:
     {
         cout << "Base(double = 0)" << endl;
     }
+    virtual
     void print()
     {
         cout << "This is Base " << "_base = " << _base << endl;
@@ -30,10 +31,10 @@ public:
     {
         cout << "Derived(double = 1)" << endl;
     }
-    /* void print() */
-    /* { */
-    /*     cout << "This is Derived " << "_base in Derived = " << _base << endl; */
-    /* } */
+    void print()
+    {
+        cout << "This is Derived " << "_base in Derived = " << _base << endl;
+    }
 private:
     double _base;
 };
@@ -41,9 +42,10 @@ private:
 int main()
 {
     Derived d;
-    d.Base::print();
+    /* d.Base::print(); */
 
     Base *pbase = &d;
+    pbase->print();
 
     return 0;
 }
