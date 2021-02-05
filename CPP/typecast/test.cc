@@ -7,46 +7,35 @@ using std::endl;
 class Base
 {
 public:
-    Base(double base = 0)
-    :_base(base)
-    {
-        cout << "Base(double = 0)" << endl;
-    }
     virtual
-    void print()
+    void func()
     {
-        cout << "This is Base " << "_base = " << _base << endl;
+        cout << "Base::func()" << endl;
     }
-
 private:
-    double _base;
+    double base;
 };
 
 class Derived
-:public Base
+: virtual public Base
 {
 public:
-    Derived(double base = 1)
-    : _base(base)
+    void func() override
     {
-        cout << "Derived(double = 1)" << endl;
+        cout << "Derived::func()" << endl;
     }
-    void print()
+    virtual void func2()
     {
-        cout << "This is Derived " << "_base in Derived = " << _base << endl;
+
     }
 private:
-    double _base;
+    double derived;
 };
 
 int main()
 {
-    Derived d;
-    /* d.Base::print(); */
-
-    Base *pbase = &d;
-    pbase->print();
-
-    return 0;
+    cout << "sizeof(Base) = " << sizeof(Base) << endl;
+    cout << "sizeof(Derived) = " << sizeof(Derived) << endl;
+    Derived derived;
+    printf("Derived虚表的地址 = %p\n", *(long *)(&derived));
 }
-
