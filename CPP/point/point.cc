@@ -126,6 +126,7 @@ void test()
 {
     Point pt1(1, 2);
     cout << "pt1 = " << pt1 << endl;
+    Point pt2{2, 3};
 
     Complex com1(10, 20);
     Point pt2 = com1;

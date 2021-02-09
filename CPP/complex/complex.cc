@@ -58,6 +58,9 @@ void test()
 
     Complex com3 = com1 + com2;
     com3.print();
+
+    Complex com4 = {10, 20};
+    com4.print();
 }
 
 int main()
